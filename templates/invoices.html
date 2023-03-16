@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Invoices{% endblock %}
+
+{% block content %}
+    <h2>Faktury</h2>
+    <table>
+        <tr>
+            <th>Numer FV</th>
+            <th>Data Utworzenia</th>
+            <th>Akcje</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <a href="">Delete</a>
+                <br/>
+                <a href="">Update</a>
+            </td>
+        </tr>
+    </table>
+
+    <form action="/" method="POST">
+        <input type="text" name="content" id="content">
+        <input type="submit" value="Dodaj FV">
+    </form>
+
+{% endblock %}

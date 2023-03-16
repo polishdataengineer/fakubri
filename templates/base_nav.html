@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-item nav-link {{ 'active' if active_menu=='dashboard' }}" id="dashboard" href="{{ url_for('dashboard') }}">Dashboard</a>
+            </li>
+            {% if is_admin %}
+                <li class="nav-item">
+                    <a class="nav-item nav-link {{ 'active' if active_menu=='users' }}" id="users" href="{{ url_for('users') }}">Users</a>
+                </li>
+            {% endif %}
+            {% if not session['loggedin'] or not is_admin %}
+                <li class="nav-item">
+                    <a class="nav-item nav-link {{ 'active' if active_menu=='register' }}" id="register" href="{{ url_for('register') }}">Register</a>
+                </li>
+            {% endif %}
+            <!-- <li class="nav-item">
+                <a class="nav-item nav-link" id="clients" href="/clients">Klienci</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link" id="invoices" href="/invoices">Faktury</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link" id="companies" href="/companies">Moje Firmy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link {{ 'active' if active_menu=='invoice_example' }}" id="invoiceExample" href="/invoice-example">Invoice-example</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link {{ 'active' if active_menu=='create_invoice' }}" id="createInvoice" href="/create/1">Create Invoice</a>
+            </li> -->
+        </ul>
+    </div>
+    <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto" href="{{ url_for('dashboard') }}">
+            <img src="{{ url_for('static', filename='images/kubrit-sygnet-k.png') }}" width="30" height="30" class="d-inline-block align-top" alt="FAKubri">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            {% if not session['loggedin'] %}
+                <li class="nav-item">
+                    <a class="nav-item nav-link {{ 'active' if active_menu=='login' }}" id="login" href="{{ url_for('login') }}">Login</a>
+                </li>
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-item nav-link" id="logout" href="{{ url_for('logout') }}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>

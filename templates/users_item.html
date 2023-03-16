@@ -1,0 +1,16 @@
+<tr>
+    <th scope="row">{{ user.id }}</th>
+    <td>{{ user.username }}</td>
+    <td>{{ user.first_name }}</td>
+    <td>{{ user.last_name }}</td>
+    <!-- <td>{{ user.password }}</td> -->
+    <td>{% if user.active == 1 %} Active {% else %} Disabled {% endif %}</td>
+    <td>{% if user.deleted == 1 %} Yes {% else %} - {% endif %}</td>
+    <td>{% if user.is_admin == 1 %} Administrator {% else %} User {% endif %}</td>
+    <td>{{ user.date_joined }}</td>
+    <td>
+        <a href="edit/{{ user.id }}" type="button" class="btn btn-warning btn-xs">Edit</a>
+        <a href="delete/{{ user.id }}" type="button" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure to delte?')">Delete</a>
+        <!-- <a href="{{ url_for('delete', id=user.id) }}" type="button" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure to delte?')">Delete</a> -->
+    </td>
+</tr>

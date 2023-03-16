@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block content %}
+<form id="register_form" action="{{ url_for('register') }}" method="POST">
+    
+    <h3 class="text-center">Register</h3>
+
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" value="{{ user.username }}" autofocus=""/>
+    </div>
+
+    <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name" value="{{ user.first_name }}" autofocus=""/>
+    </div>
+
+    <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Last Name" value="{{ user.last_name }}" autofocus=""/>
+    </div>
+
+    <div class="form-group">
+        <label for="password1">Password</label>
+        <input type="password" class="form-control" id="password1" name="password" placeholder="Enter password" value="{{ user.password }}" autofocus=""/>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+{% endblock %}
